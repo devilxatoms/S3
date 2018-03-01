@@ -36,7 +36,6 @@ let awsBucket;
 let gcpClient;
 let gcpBucket;
 let gcpBucketMPU;
-let gcpBucketOverflow;
 
 if (config.backends.data === 'multiple') {
     describeSkipIfNotMultiple = describe;
@@ -49,8 +48,6 @@ if (config.backends.data === 'multiple') {
     gcpBucket = config.locationConstraints[gcpLocation].details.bucketName;
     gcpBucketMPU =
         config.locationConstraints[gcpLocation].details.mpuBucketName;
-    gcpBucketOverflow =
-        config.locationConstraints[gcpLocation].details.overflowBucketName;
 }
 
 function _assertErrorResult(err, expectedError, desc) {
@@ -70,7 +67,6 @@ const utils = {
     gcpClient,
     gcpBucket,
     gcpBucketMPU,
-    gcpBucketOverflow,
     fileLocation,
     memLocation,
     awsLocation,
